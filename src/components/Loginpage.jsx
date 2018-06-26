@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 class Loginpage extends Component {
     render() {
         return (
-            console.log("Login")
+            <p>Login</p>
         )
     }
 }

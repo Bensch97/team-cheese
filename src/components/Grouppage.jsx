@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 class Grouppage extends Component {
     render() {
         return (
-            console.log("Group")
+            <p>Group</p>
         )
     }
 }

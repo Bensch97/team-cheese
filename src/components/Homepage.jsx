@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 class Homepage extends Component {
     render() {
         return (
-            console.log("Home")
+            <p>Home</p>
         )
     }
 }

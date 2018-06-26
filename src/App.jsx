@@ -11,11 +11,11 @@ class App extends Component {
     return (
       <div className="App">
         <React.Fragment>
-          <Switch>
+            <Switch>
               <Route exact path='/' render={() => <Homepage></Homepage>}/>
-              <Route path='/:group' render={() => <Grouppage></Grouppage>}/>
+              <Route path='/group' render={() => <Grouppage></Grouppage>}/>
               <Route path='/login' render={() => <Loginpage></Loginpage>}/>
-          </Switch>
+            </Switch>
         </React.Fragment>
       </div>
     );
