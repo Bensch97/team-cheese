@@ -15,6 +15,7 @@ class App extends Component {
               <Route exact path='/' render={() => <Homepage></Homepage>}/>
               <Route path='/group' render={() => <Grouppage></Grouppage>}/>
               <Route path='/login' render={() => <Loginpage></Loginpage>}/>
+              <Route path='/data' render={() => <DataCall />}/>
             </Switch>
         </React.Fragment>
       </div>
