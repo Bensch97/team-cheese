@@ -4,7 +4,7 @@ import './App.css';
 import Homepage from './components/Homepage.jsx';
 import Grouppage from './components/Grouppage.jsx';
 import Loginpage from './components/Loginpage.jsx';
-
+import DataCall from './components/DataCall.jsx';
 
 class App extends Component {
   render() {
