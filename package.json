@@ -5,8 +5,11 @@
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "semantic-ui-react": "^0.81.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -15,7 +18,16 @@
     "eject": "react-scripts eject"
   },
   "main": "index.js",
-  "repository": "https://github.com/jakeberg/team-cheese.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakeberg/team-cheese.git"
+  },
   "author": "Bensch97 <ben.w.schacht@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "bugs": {
+    "url": "https://github.com/jakeberg/team-cheese/issues"
+  },
+  "homepage": "https://github.com/jakeberg/team-cheese#readme",
+  "devDependencies": {}
 }
