@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 
 class Homepage extends Component {
     state = {
@@ -9,11 +10,15 @@ class Homepage extends Component {
     render() {
         return (
             <div>
-                <p id='usennameSpace'>{this.state.username}</p>
-                <h1 className='titleArea'> Food Fetch! </h1>
+                <br />
+                <br />
+                <h1> Hey! This is a landing page!</h1>
+                <br />
+                <br />
+                <a href="/login"> <Button>Login</Button></a>
             </div>
         )
-        
+
     }
 }
 

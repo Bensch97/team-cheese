@@ -1,34 +1,80 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import { Button, Form } from 'semantic-ui-react';
 
 class Loginpage extends Component {
     state = {
-        email: '',
         username: '',
         password: '',
+        emailRegistration: '',
+        usernameRegistration: '',
+        passwordRegistration: '',
+        loggedIn: false,
+    };
 
+    onChange = field => e => {
+        this.setState({
+            [field]: e.target.value
+        });
     }
-    onChange = stateProp => evt => {
-        this.setState({[stateProp]: evt.target.value})
+
+    handleRegistration = () => {
+        fetch("a url")
+            .then(response => response.json())
+            .then(data => {
+            })
     }
+
+    handleLogin = () => {
+        fetch("a url")
+            .then(response => response.json())
+            .then(data => {
+            })
+    }
+
     render() {
-        const {email, username, password} = this.state;
+        const { username, password, emailRegistration, usernameRegistration, passwordRegistration } = this.state;
         return (
-            <div id='loginPage'>
-            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"></link>
-                <div className='titleArea'>
-                    <h1 className='loginPageText'> Welcome to Food Fetch </h1>
+            <React.Fragment>
+                <br />
+                <div className="ui segment">
+                    <div className="ui"></div>
+                    <Form onSubmit={this.handleLogin}>
+                        <Form.Field>
+                            <h1>Login:</h1>
+                            <label>Username:</label>
+                            <input type="text" onChange={this.onChange("username")} />
+                        </Form.Field>
+
+                        <Form.Field>
+                            <label>Password:</label>
+                            <input type="password" onChange={this.onChange("password")} />
+                            <br />
+                            <br />
+                            <Button type='submit' className="ui primary basic button">Login</Button>
+                        </Form.Field>
+                    </Form>
                 </div>
-                <div id='loginArea'>
-                    <h3 className='loginPageText'> Login </h3>
-                        <input type='text' placeholder='Username' onChange={this.onChange('username')} />
-                        <input type='text' placeholder='Password' onChange={this.onChange('password')} />
-                </div>
-                <div id='registerArea'>
-                    <h3 className='loginPageText'> Don't have an account? Register here! </h3>
-                        <input type='text' placeholder='Email' onChange={this.onChange('email')} />
-                        <input type='text' placeholder='Username' onChange={this.onChange('username')} />
-                        <input type='text' placeholder='Password' onChange={this.onChange('password')} />
+
+                <div className="ui segment">
+                    <div className="ui"></div>
+                    <Form onSubmit={this.handleRegistration}>
+                        <h1>Register:</h1>
+                        <Form.Field>
+                            <label>Email:</label>
+                            <input type="text" onChange={this.onChange("emailRegistration")} />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Username:</label>
+                            <input type="text" onChange={this.onChange("usernameRegistration")} />
+                        </Form.Field>
+
+                        <Form.Field>
+                            <label>Password:</label>
+                            <input type="password" onChange={this.onChange("passwordRegistration")} />
+                        </Form.Field>
+                        <Button type="submit" className="ui primary basic button">Register</Button>
+                    </Form>
                 </div>
                 <div id='groupList'>
                     <h3 className='loginPageText'> Not-for-Profits you can help today! </h3>
@@ -38,9 +84,10 @@ class Loginpage extends Component {
                         <li>Not for Profit</li>
                     </ol>
                 </div>
-            </div>
+            </React.Fragment>
         )
     }
 }
+
 
 export default withRouter(Loginpage)
