@@ -1,6 +1,5 @@
 
 import { REGISTER, LOGIN } from "../actions";
-import * as R from 'ramda';
 const initialState= [];
 
 const foodFetchReducer = (state = initialState, action) => {

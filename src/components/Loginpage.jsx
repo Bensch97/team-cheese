@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
-import 'semantic-ui-css/semantic.min.css';
 
 class Loginpage extends Component {
     state = {
