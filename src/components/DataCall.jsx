@@ -25,12 +25,14 @@ class DataCall extends React.Component {
 
     render() {
         return (
-            <div>
-                <Form onSubmit={this.sendData}>
-                    <Form.Field>
-                        <Button onClick={this.sendData} className="ui primary basic button">Send Data</Button>
-                    </Form.Field>
-                </Form>
+            <div className="ui container">
+                <div className="fullpage">
+                    <Form onSubmit={this.sendData}>
+                        <Form.Field>
+                            <Button onClick={this.sendData} className="ui primary basic button">Send Data</Button>
+                        </Form.Field>
+                    </Form>
+                </div>
             </div>
         );
     };
