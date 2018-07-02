@@ -15,10 +15,10 @@ class Navigation extends Component {
 
             <Sidebar.Pushable as={Segment}>
                 <Sidebar className="color" as={Menu} animation='overlay' icon='labeled' inverted vertical visible width='thin'>
-                    <Link to="/navigation/home"><Menu.Item as='a'><Icon name='home' />Home</Menu.Item></Link>
-                    <Link to="/navigation/group"><Menu.Item as='a'><Icon name='group' />Groups</Menu.Item></Link>
-                    <Link to="/navigation/calendar"><Menu.Item as='a'><Icon name='calendar alternate outline' />Calendar</Menu.Item></Link>
-                    <Link to='/navigation/donorlist'><Menu.Item as='a'><Icon name='caret square down outline' />Donor List</Menu.Item></Link>
+                    <Link to="/navigation/home"><Menu.Item ><Icon name='home' />Home</Menu.Item></Link>
+                    <Link to="/navigation/group"><Menu.Item ><Icon name='group' />Groups</Menu.Item></Link>
+                    <Link to="/navigation/calendar"><Menu.Item ><Icon name='calendar alternate outline' />Calendar</Menu.Item></Link>
+                    <Link to='/navigation/donorlist'><Menu.Item ><Icon name='caret square down outline' />Donor List</Menu.Item></Link>
                 </Sidebar>
 
                 <Sidebar.Pusher>
