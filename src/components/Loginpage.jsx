@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
+import Header from './Header.jsx';
+import LoggedInModal from './LoggedInModal';
 
 class Loginpage extends Component {
     state = {
@@ -26,18 +28,21 @@ class Loginpage extends Component {
     }
 
     handleLogin = () => {
-        fetch("a url")
-            .then(response => response.json())
-            .then(data => {
-            })
+        // fetch("a url")
+        //     .then(response => response.json())
+        //     .then(data => {
+        //     })
+        this.setState({ loggedIn: true });
     }
 
     render() {
         const { username, password, emailRegistration, usernameRegistration, passwordRegistration } = this.state;
         return (
             <React.Fragment>
+                <Header />
+                <LoggedInModal loggedIn={this.state.loggedIn} />
                 <br />
-                <div className="ui segment">
+                <div className="ui segment container">
                     <div className="ui"></div>
                     <Form onSubmit={this.handleLogin}>
                         <Form.Field>
@@ -56,7 +61,7 @@ class Loginpage extends Component {
                     </Form>
                 </div>
 
-                <div className="ui segment">
+                <div className="ui segment container">
                     <div className="ui"></div>
                     <Form onSubmit={this.handleRegistration}>
                         <h1>Register:</h1>
@@ -76,7 +81,7 @@ class Loginpage extends Component {
                         <Button type="submit" className="ui primary basic button">Register</Button>
                     </Form>
                 </div>
-                <div id='groupList'>
+                <div id='groupList' className="ui container">
                     <h3 className='loginPageText'> Not-for-Profits you can help today! </h3>
                     <ol>
                         <li>Not for Profit</li>
