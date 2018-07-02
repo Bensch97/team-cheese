@@ -39,7 +39,6 @@ class DonationForm extends React.Component {
             })
     }
 
-
     render() {
         return (
             <React.Fragment>

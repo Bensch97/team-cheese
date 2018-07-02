@@ -6,6 +6,7 @@ import Grouppage from './Grouppage';
 import DataCall from './DataCall';
 import Userhome from './Userhome';
 import Calendar from './Calendar';
+import DonorList from './DonorList';
 
 class Navigation extends Component {
 
@@ -17,6 +18,7 @@ class Navigation extends Component {
                     <Link to="/navigation/home"><Menu.Item as='a'><Icon name='home' />Home</Menu.Item></Link>
                     <Link to="/navigation/group"><Menu.Item as='a'><Icon name='group' />Groups</Menu.Item></Link>
                     <Link to="/navigation/calendar"><Menu.Item as='a'><Icon name='calendar alternate outline' />Calendar</Menu.Item></Link>
+                    <Link to='/navigation/donorlist'><Menu.Item as='a'><Icon name='caret square down outline' />Donor List</Menu.Item></Link>
                 </Sidebar>
 
                 <Sidebar.Pusher>
@@ -26,6 +28,7 @@ class Navigation extends Component {
                             <Route path='/navigation/home' render={() => <Userhome />} />
                             <Route path='/navigation/calendar' render={() => <Calendar />} />
                             <Route path='/navigation/data' render={() => <DataCall />} />
+                            <Route path='/navigation/donorlist' render={() => <DonorList/>} />
                         </Switch>
                     </Segment>
                 </Sidebar.Pusher>

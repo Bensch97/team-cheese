@@ -17,6 +17,14 @@
     margin-left: 150px !important;
 }
 
+.ItemFullpage {
+    height: 95vh;
+    width: 100% !important;
+    margin-left: 150px !important;
+    overflow: scroll;
+}
+
+
 .color {
     background-color: rgb(75, 182, 127) !important;
 }
