@@ -31,7 +31,7 @@ class Navigation extends Component {
                             <Route path='/navigation/home' render={() => <Userhome />} />
                             <Route path='/navigation/calendar' render={() => <Calendar />} />
                             <Route path='/navigation/data' render={() => <DataCall />} />
-                            <Route path='/navigation/donorlist' render={() => <DonorList/>} />
+                            <Route path='/navigation/donorlist' render={() => <DonorList />} />
                         </Switch>
                     </Segment>
                 </Sidebar.Pusher>
