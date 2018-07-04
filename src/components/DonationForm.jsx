@@ -4,12 +4,12 @@ import { Button, Form } from 'semantic-ui-react'
 class DonationForm extends React.Component {
 
     state = {
-        name: '',
-        phone: '',
-        address: '',
-        manager: '',
-        date: '',
-        time: '',
+            name: '',
+            phone: '',
+            address: '',
+            manager: '',
+            date: '',
+            time: '',
     };
 
     handleChange = field => e => {
