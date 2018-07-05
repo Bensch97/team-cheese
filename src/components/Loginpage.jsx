@@ -4,6 +4,7 @@ import { Button, Form } from 'semantic-ui-react';
 import Header from './Header.jsx';
 import LoggedInModal from './LoggedInModal';
 import { login } from '../actions';
+import { connect } from 'react-redux';
 
 class Loginpage extends Component {
     state = {
@@ -54,6 +55,7 @@ class Loginpage extends Component {
           })
           .then(response => response.json())
           .then(data => {
+              console.log(data.token)
             this.props.dispatch(login(data.token));
             if (data.token) {
               this.setState({ loggedIn: true });
@@ -70,7 +72,8 @@ class Loginpage extends Component {
                 <Header />
                 <LoggedInModal loggedIn={this.state.loggedIn} />
                 <br />
-                <div className="ui segment container">
+                <div className="ui segment container loginContainer">
+                <div className="ui segment">
                     <div className="ui"></div>
                     <Form onSubmit={this.handleLogin}>
                         <Form.Field>
@@ -89,7 +92,7 @@ class Loginpage extends Component {
                     </Form>
                 </div>
 
-                <div className="ui segment container">
+                <div className="ui segment">
                     <div className="ui"></div>
                     <Form onSubmit={this.handleRegistration}>
                         <h1>Register:</h1>
@@ -109,10 +112,12 @@ class Loginpage extends Component {
                         <Button type="submit" className="ui primary basic button">Register</Button>
                     </Form>
                 </div>
+                </div>
             </React.Fragment>
         )
     }
 }
 
 
-export default withRouter(Loginpage)
+export default withRouter(connect()(Loginpage));
+
