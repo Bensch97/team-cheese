@@ -1,27 +1,31 @@
-import React from 'react'
-import { Item } from 'semantic-ui-react'
+import React from 'react';
+import { Item } from 'semantic-ui-react';
 
 class Donors extends React.Component {
     render () {
         return (
-        <Item.Group>
-          <Item>
-            <Item.Content>
-              <Item.Header as='a'>{this.props.name}</Item.Header>
-              <Item.Meta>{this.props.phone}
-              <br/>
-              {this.props.address}</Item.Meta>
-              <Item.Description>
-                <ul>
-              <li>{this.props.manager}</li>
-              <li>{this.props.pickup_date}</li>
-              <li>{this.props.pickup_time}</li>
-                </ul>
-              </Item.Description>
-              <Item.Extra></Item.Extra>
-            </Item.Content>
-          </Item>
-        </Item.Group>
+        <div className="ui segment">
+
+            <Item.Group>
+            <Item>
+                <Item.Content>
+                <Item.Header as='a'>{this.props.name}</Item.Header>
+                <Item.Meta>{this.props.phone}
+                <br/>
+                {this.props.address}</Item.Meta>
+                <Item.Description>
+                    <ul>
+                <li>{this.props.manager}</li>
+                <li>{this.props.pickup_date}</li>
+                <li>{this.props.pickup_time}</li>
+                    </ul>
+                </Item.Description>
+                <Item.Extra></Item.Extra>
+                </Item.Content>
+            </Item>
+            </Item.Group>
+
+        </div>
         )
     }
 }
