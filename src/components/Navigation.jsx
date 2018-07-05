@@ -26,7 +26,7 @@ class Navigation extends Component {
                 <Sidebar.Pusher>
                     <Segment basic>
                         <Switch>
-                            <Route path='/navigation/home' render={() => <Home />} />
+                            <Route exact path='/navigation/home' render={() => <Home />} />
                             <Route path='/navigation/volunteers' render={() => <VolunteerPage />} />
                             <Route path='/navigation/volunteerregister' render={() => <VolunteerRegister />} />
                             <Route path='/navigation/calendar' render={() => <Calendar />} />

@@ -10,7 +10,7 @@ class App extends Component {
       <React.Fragment>
 
           <Switch>
-            <Route path='/' render={() => <Loginpage></Loginpage>} />
+            <Route exact path='/' render={() => <Loginpage />} />
             <Route path='/navigation' render={() => <Navigation />} />
           </Switch>
 
