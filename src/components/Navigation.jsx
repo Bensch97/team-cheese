@@ -16,20 +16,17 @@ class Navigation extends Component {
 
             <Sidebar.Pushable as={Segment}>
                 <Sidebar className="color" as={Menu} animation='overlay' icon='labeled' inverted vertical visible width='thin'>
-
                     <Menu.Item as='a' href="/navigation/home"><Icon name='home' />Home</Menu.Item>
                     <Menu.Item as='a' href="/navigation/group"><Icon name='group' />Groups</Menu.Item>
                     <Menu.Item as='a' href="/navigation/groupregister"><Icon name='plus' />Add Group</Menu.Item>
                     <Menu.Item as='a' href="/navigation/donorlist"><Icon name='caret square down outline' />Donor List</Menu.Item>
                     <Menu.Item as='a' href="/navigation/calendar"><Icon name='calendar alternate outline' />Calendar</Menu.Item>
-
                 </Sidebar>
 
                 <Sidebar.Pusher>
                     <Segment basic>
                         <Switch>
                             <Route path='/navigation/group' render={() => <Grouppage />} />
-                            <Route path='/navigation/groupregister' render={() => <GroupRegister />} />
                             <Route path='/navigation/home' render={() => <Userhome />} />
                             <Route path='/navigation/calendar' render={() => <Calendar />} />
                             <Route path='/navigation/data' render={() => <DataCall />} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Checkbox } from 'semantic-ui-react'
 
 class DonationForm extends React.Component {
 
@@ -10,6 +10,7 @@ class DonationForm extends React.Component {
             manager: '',
             date: '',
             time: '',
+            day: '',
     };
 
     handleChange = field => e => {
@@ -32,6 +33,7 @@ class DonationForm extends React.Component {
                 manager: this.state.manager,
                 date: this.state.date,
                 time: this.state.time,
+                day: this.state.day,
             }),
         })
             .then(data => {
@@ -67,6 +69,16 @@ class DonationForm extends React.Component {
                     <Form.Field>
                         <label>Pickup Time</label>
                         <input placeholder='Pickup Time' onChange={this.handleChange("time")} />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Day of Pickup</label>
+                            <label><input type="checkbox" name="Sunday" id="Sunday" value="Sunday"/>Sunday</label>
+                            <label><input type="checkbox" name="Monday" id="Monday" value="Monday"/>Monday</label>
+                            <label><input type="checkbox" name="Tuesday" id="Tuesday" value="Tuesday"/>Tuesday</label>
+                            <label><input type="checkbox" name="Wednesday" id="Wednesday" value="Wednesday"/>Wednesday</label>
+                            <label><input type="checkbox" name="Thursday"id="Thursday" value="Thursday"/>Thursday</label>
+                            <label><input type="checkbox" name="Friday"id="Friday" value="Friday"/>Friday</label>
+                            <label><input type="checkbox" name="Saturday"id="Saturday" value="Saturday"/>Saturday</label>
                     </Form.Field>
                     <Button type='submit'>Submit</Button>
                 </Form>

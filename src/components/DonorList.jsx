@@ -4,28 +4,27 @@ import { Item } from 'semantic-ui-react';
 class Donors extends React.Component {
     render () {
         return (
-        <div className="ui segment">
 
-            <Item.Group>
-            <Item>
-                <Item.Content>
-                <Item.Header as='a'>{this.props.name}</Item.Header>
-                <Item.Meta>{this.props.phone}
-                <br/>
-                {this.props.address}</Item.Meta>
-                <Item.Description>
-                    <ul>
-                <li>{this.props.manager}</li>
-                <li>{this.props.pickup_date}</li>
-                <li>{this.props.pickup_time}</li>
-                    </ul>
-                </Item.Description>
-                <Item.Extra></Item.Extra>
-                </Item.Content>
-            </Item>
-            </Item.Group>
+        <Item.Group>
+          <Item>
+            <Item.Content>
+              <Item.Header as='a'>{this.props.name}</Item.Header>
+              <Item.Meta>{this.props.phone}
+              <br/>
+              {this.props.address}</Item.Meta>
+              <Item.Description>
+                <ul>
+              <li>{this.props.manager}</li>
+              <li>{this.props.pickup_date}</li>
+              <li>{this.props.pickup_time}</li>
+              <li>{this.props.pickup_day}</li>
+                </ul>
+              </Item.Description>
+              <Item.Extra></Item.Extra>
+            </Item.Content>
+          </Item>
+        </Item.Group>
 
-        </div>
         )
     }
 }
@@ -57,7 +56,8 @@ class DonorList extends React.Component {
                                                     phone={data.phone}
                                                     manager={data.manager}
                                                     pickup_date={data.pickup_date}
-                                                    pickup_time={data.pickup_time}/>) }
+                                                    pickup_time={data.pickup_time}
+                                                    pickup_day={data.pickup_day}/>) }
                 </div>
                 </div>
             </React.Fragment>
