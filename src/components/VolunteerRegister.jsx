@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 
-class GroupRegister extends Component {
+class VolunteerRegister extends Component {
 
     state = {
-        group_name: '',
+        volunteer_name: '',
         bio: '',
     }
 
@@ -23,7 +23,7 @@ class GroupRegister extends Component {
             },
             mode: "cors",
             body: JSON.stringify({
-                group_name: this.state.group_name,
+                group_name: this.state.volunteer_name,
                 bio: this.state.bio
             }),
         })
@@ -36,15 +36,15 @@ class GroupRegister extends Component {
         return (
             <div className="ui container">
                 <div className="fullpage">
-                    <h1>Register A Group</h1>
+                    <h1>Register A Volunteer</h1>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Field>
                             <label>Name</label>
-                            <input placeholder='Name of Group' onChange={this.handleChange("group_name")} />
+                            <input placeholder='Name of Volunteer' onChange={this.handleChange("volunteer_name")} />
                         </Form.Field>
                         <Form.Field>
                             <label>Bio</label>
-                            <input placeholder='Group Biography' onChange={this.handleChange("bio")} />
+                            <input placeholder='Volunteer Biography' onChange={this.handleChange("bio")} />
                         </Form.Field>
                         <Button type='submit'>Submit</Button>
                     </Form>
@@ -54,4 +54,4 @@ class GroupRegister extends Component {
     }
 }
 
-export default withRouter(GroupRegister);
+export default withRouter(VolunteerRegister);

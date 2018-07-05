@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Image, Item } from 'semantic-ui-react'
+import { Item } from 'semantic-ui-react'
 
-class Groups extends React.Component {
+class Volunteer extends React.Component {
     render() {
         return (
             <Item.Group>
@@ -15,10 +15,9 @@ class Groups extends React.Component {
             </Item.Group>
         )
     }
-
 }
 
-class Grouppage extends Component {
+class VolunteerPage extends Component {
     state = {
         data: []
     }
@@ -26,24 +25,26 @@ class Grouppage extends Component {
     componentDidMount = () => {
         fetch("https://team-cheese-backend.herokuapp.com/groups")
             .then(response => response.json())
-            .then(data =>  {
-            this.setState({data})
-            console.log(this.state)
+            .then(data => {
+                this.setState({ data })
+                console.log(this.state)
             }
-            )      
+            )
     }
 
     render() {
         return (
             <div className="ui container">
                 <div className="fullpage">
-                    {this.state.data.map(data => <Groups key={data.id}
-                                                    name={data.group_name}
-                                                    bio={data.bio}/>)}
+                    <h1>Your volunteers:</h1>
+
+                    {this.state.data.map(data => <Volunteer key={data.id}
+                        name={data.group_name}
+                        bio={data.bio} />)}
                 </div>
             </div>
         )
     }
 }
 
-export default withRouter(Grouppage);
+export default withRouter(VolunteerPage);
