@@ -1,23 +1,8 @@
-export const REGISTER = 'REGISTER';
 export const LOGIN = 'LOGIN';
 
-export const register = (username, password, displayName) => {
+export const login = (token) => {
     return {
-        type: REGISTER,
-        user: {
-            username,
-            displayName
-        }
+    type: LOGIN,
+    token: token,
     }
-}
-
-export const login = (username, token, userId) => {
-    return {
-        type: LOGIN,
-        user: {
-            username, 
-            token,
-            userId
-        }
-    }
-}
+};

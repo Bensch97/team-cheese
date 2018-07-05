@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import Header from './Header.jsx';
 import LoggedInModal from './LoggedInModal';
+import { login } from '../actions';
 
 class Loginpage extends Component {
     state = {
@@ -21,19 +22,46 @@ class Loginpage extends Component {
     }
 
     handleRegistration = () => {
-        fetch("a url")
-            .then(response => response.json())
-            .then(data => {
-            })
-    }
-
-    handleLogin = () => {
-        // fetch("a url")
-        //     .then(response => response.json())
-        //     .then(data => {
-        //     })
-        this.setState({ loggedIn: true });
-    }
+        fetch("https://kwitter-api.herokuapp.com/auth/register", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          mode: "cors",
+          body: JSON.stringify({
+            username: this.state.usernameRegistration,
+            password: this.state.passwordRegistration,
+          }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            alert("You've been registered!")
+          })
+      }
+    
+      handleLogin = () => {
+        fetch("https://kwitter-api.herokuapp.com/auth/login",
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            mode: "cors",
+            body: JSON.stringify({
+              username: this.state.username,
+              password: this.state.password,
+            }),
+          })
+          .then(response => response.json())
+          .then(data => {
+            this.props.dispatch(login(data.token));
+            if (data.token) {
+              this.setState({ loggedIn: true });
+            } else {
+              alert("Please register first.");
+            }
+          })
+      }
 
     render() {
         const { username, password, emailRegistration, usernameRegistration, passwordRegistration } = this.state;
@@ -80,14 +108,6 @@ class Loginpage extends Component {
                         </Form.Field>
                         <Button type="submit" className="ui primary basic button">Register</Button>
                     </Form>
-                </div>
-                <div id='groupList' className="ui container">
-                    <h3 className='loginPageText'> Not-for-Profits you can help today! </h3>
-                    <ol>
-                        <li>Not for Profit</li>
-                        <li>Not for Profit</li>
-                        <li>Not for Profit</li>
-                    </ol>
                 </div>
             </React.Fragment>
         )

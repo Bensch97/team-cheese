@@ -1,9 +1,10 @@
-import React from 'react'
-import { Item } from 'semantic-ui-react'
+import React from 'react';
+import { Item } from 'semantic-ui-react';
 
 class Donors extends React.Component {
     render () {
         return (
+
         <Item.Group>
           <Item>
             <Item.Content>
@@ -23,6 +24,7 @@ class Donors extends React.Component {
             </Item.Content>
           </Item>
         </Item.Group>
+
         )
     }
 }
