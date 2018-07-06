@@ -1,5 +1,35 @@
-import React from 'react'
-import { Button, Form } from 'semantic-ui-react'
+import React from 'react';
+import { Button, Form, Checkbox } from 'semantic-ui-react';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+
+import 'react-datepicker/dist/react-datepicker.css';
+
+class Example extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            startDate: moment()
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(date) {
+        this.setState({
+            startDate: date
+        });
+    }
+
+    render() {
+        return <DatePicker
+            selected={this.state.startDate}
+            onChange={this.handleChange}
+        />;
+    }
+}
+
+const heroku = "https://team-cheese-backend.herokuapp.com/adddonor";
+const local = "http://localhost:3000/adddonor";
 
 class DonationRegister extends React.Component {
 
@@ -8,8 +38,17 @@ class DonationRegister extends React.Component {
         phone: '',
         address: '',
         manager: '',
-        date: '',
+        date: moment(),
         time: '',
+        days: {
+            "Sunday": false,
+            "Monday": false,
+            "Tuesday": false,
+            "Wednesday": false,
+            "Thursday": false,
+            "Friday": false,
+            "Saturday": false
+        }
     };
 
     handleChange = field => e => {
@@ -18,8 +57,23 @@ class DonationRegister extends React.Component {
         });
     }
 
+    handleDate = (date) => {
+        this.setState({
+            date: date
+        })
+        console.log(this.state.date);
+    }
+
+    handleChecked = (day, e) => {
+        let dayChecked = this.state.days;
+        dayChecked[day] = e.target.checked;
+        this.setState({
+            days: dayChecked
+        })
+    }
+
     handleSubmit = () => {
-        fetch("https://team-cheese-backend.herokuapp.com/adddonor", {
+        fetch(local, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -32,6 +86,7 @@ class DonationRegister extends React.Component {
                 manager: this.state.manager,
                 date: this.state.date,
                 time: this.state.time,
+                days: this.state.days,
             }),
         })
             .then(data => {
@@ -44,7 +99,6 @@ class DonationRegister extends React.Component {
             <React.Fragment>
                 <div className="ui container">
                     <div className="ItemFullpage">
-                        <br />
                         <h1>Add a donor</h1>
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Field>
@@ -65,22 +119,24 @@ class DonationRegister extends React.Component {
                             </Form.Field>
                             <Form.Field>
                                 <label>Pickup Date</label>
-                                <input placeholder='Pickup Date' onChange={this.handleChange("date")} />
+                                <DatePicker selected={this.state.date} onChange={this.handleDate} />
                             </Form.Field>
                             <Form.Field>
                                 <label>Pickup Time</label>
-                                <input placeholder='Pickup Time' onChange={this.handleChange("time")} />
+                                <input placeholder='Time' onChange={this.handleChange("time")} />
                             </Form.Field>
+                            
                             <Form.Field>
-                                <label>Day of Pickup</label>
-                                <label><input type="checkbox" name="Sunday" id="Sunday" value="Sunday" />Sunday</label>
-                                <label><input type="checkbox" name="Monday" id="Monday" value="Monday" />Monday</label>
-                                <label><input type="checkbox" name="Tuesday" id="Tuesday" value="Tuesday" />Tuesday</label>
-                                <label><input type="checkbox" name="Wednesday" id="Wednesday" value="Wednesday" />Wednesday</label>
-                                <label><input type="checkbox" name="Thursday" id="Thursday" value="Thursday" />Thursday</label>
-                                <label><input type="checkbox" name="Friday" id="Friday" value="Friday" />Friday</label>
-                                <label><input type="checkbox" name="Saturday" id="Saturday" value="Saturday" />Saturday</label>
+                                <h3>Weekly availability: </h3>
+                                <label onChange={(e) => this.handleChecked("Sunday", e)}><Checkbox label="Sunday" /></label>
+                                <label onChange={(e) => this.handleChecked("Monday", e)}><Checkbox label="Monday" /> </label>
+                                <label onChange={(e) => this.handleChecked("Tuesday", e)}><Checkbox label="Tuesday" /></label>
+                                <label onChange={(e) => this.handleChecked("Wednesday", e)}><Checkbox label="Wednesday" /></label>
+                                <label onChange={(e) => this.handleChecked("Thursday", e)}><Checkbox label="Thusday" /></label>
+                                <label onChange={(e) => this.handleChecked("Friday", e)}><Checkbox label="Friday" /></label>
+                                <label onChange={(e) => this.handleChecked("Saturday", e)}><Checkbox label="Saturday" /></label>
                             </Form.Field>
+
                             <Button type='submit'>Submit</Button>
                         </Form>
                     </div>
