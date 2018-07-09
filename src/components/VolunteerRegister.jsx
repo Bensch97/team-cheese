@@ -30,33 +30,28 @@ class VolunteerRegister extends Component {
     }
 
     handleChecked = (day, e) => {
-        // console.log(this.state.days)
-        // console.log(day,e.target.checked )
         let dayChecked = this.state.days;
         dayChecked[day] = e.target.checked;
         this.setState({
             days: dayChecked
         })
-        // console.log(this.state)
         console.log(this.state.days)
     }
 
     handleSubmit = () => {
-        fetch(local,
-                {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                mode: "cors",
-                body: JSON.stringify({
-                    volunteer_name: this.state.volunteer_name,
-                    phone: this.state.phone,
-                    email: this.state.email,
-                    days: this.state.days,
-                }),
-            }
-        )
+        fetch(heroku, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: "cors",
+            body: JSON.stringify({
+                volunteer_name: this.state.volunteer_name,
+                phone: this.state.phone,
+                email: this.state.email,
+                days: this.state.days,
+            }),
+        })
             .then(response => response.json())
             .then(data => {
                 console.log(data)

@@ -2,8 +2,10 @@ import React from 'react';
 import { Button, Form, Checkbox } from 'semantic-ui-react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-
 import 'react-datepicker/dist/react-datepicker.css';
+
+const heroku = "https://team-cheese-backend.herokuapp.com/adddonor";
+const local = "http://localhost:3000/adddonor";
 
 class Example extends React.Component {
     constructor(props) {
@@ -27,9 +29,6 @@ class Example extends React.Component {
         />;
     }
 }
-
-const heroku = "https://team-cheese-backend.herokuapp.com/adddonor";
-const local = "http://localhost:3000/adddonor";
 
 class DonationRegister extends React.Component {
 
@@ -61,7 +60,7 @@ class DonationRegister extends React.Component {
         this.setState({
             date: date
         })
-        console.log(this.state.date);
+        console.log(this.state);
     }
 
     handleChecked = (day, e) => {
@@ -70,11 +69,11 @@ class DonationRegister extends React.Component {
         this.setState({
             days: dayChecked
         })
-        console.log(this.state.days);
+        console.log(this.state);
     }
 
     handleSubmit = () => {
-        fetch(local, {
+        fetch(heroku, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -90,6 +89,7 @@ class DonationRegister extends React.Component {
                 days: this.state.days,
             }),
         })
+            .then(response => response.json())
             .then(data => {
                 console.log(data)
             })
