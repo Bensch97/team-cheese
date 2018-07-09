@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.2.0",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
@@ -18,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "main": "index.js",
   "repository": {
@@ -31,6 +34,6 @@
   "bugs": {
     "url": "https://github.com/jakeberg/team-cheese/issues"
   },
-  "homepage": "https://github.com/jakeberg/team-cheese#readme",
+  "homepage": "https://github.com/jakeberg/team-cheese",
   "devDependencies": {}
 }
