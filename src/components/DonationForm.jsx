@@ -72,13 +72,13 @@ class DonationForm extends React.Component {
                     </Form.Field>
                     <Form.Field>
                         <label>Day of Pickup</label>
-                            <label><input type="checkbox" name="Sunday" id="Sunday" value="Sunday"/>Sunday</label>
-                            <label><input type="checkbox" name="Monday" id="Monday" value="Monday"/>Monday</label>
-                            <label><input type="checkbox" name="Tuesday" id="Tuesday" value="Tuesday"/>Tuesday</label>
-                            <label><input type="checkbox" name="Wednesday" id="Wednesday" value="Wednesday"/>Wednesday</label>
-                            <label><input type="checkbox" name="Thursday"id="Thursday" value="Thursday"/>Thursday</label>
-                            <label><input type="checkbox" name="Friday"id="Friday" value="Friday"/>Friday</label>
-                            <label><input type="checkbox" name="Saturday"id="Saturday" value="Saturday"/>Saturday</label>
+                            <label><input type="checkbox" name="Sunday" id="Sunday" value="Sunday" onChange={this.handleChange("day")}/>Sunday</label>
+                            <label><input type="checkbox" name="Monday" id="Monday" value="Monday" onChange={this.handleChange("day")}/>Monday</label>
+                            <label><input type="checkbox" name="Tuesday" id="Tuesday" value="Tuesday" onChange={this.handleChange("day")}/>Tuesday</label>
+                            <label><input type="checkbox" name="Wednesday" id="Wednesday" value="Wednesday" onChange={this.handleChange("day")}/>Wednesday</label>
+                            <label><input type="checkbox" name="Thursday"id="Thursday" value="Thursday" onChange={this.handleChange("day")}/>Thursday</label>
+                            <label><input type="checkbox" name="Friday"id="Friday" value="Friday" onChange={this.handleChange("day")}/>Friday</label>
+                            <label><input type="checkbox" name="Saturday"id="Saturday" value="Saturday" onChange={this.handleChange("day")}/>Saturday</label>
                     </Form.Field>
                     <Button type='submit'>Submit</Button>
                 </Form>
