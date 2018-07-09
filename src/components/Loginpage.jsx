@@ -66,7 +66,7 @@ class Loginpage extends Component {
       }
 
     render() {
-        const { username, password, emailRegistration, usernameRegistration, passwordRegistration } = this.state;
+        // const { username, password, emailRegistration, usernameRegistration, passwordRegistration } = this.state;
         return (
             <React.Fragment>
                 <Header />
