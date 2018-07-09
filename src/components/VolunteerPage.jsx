@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Item } from 'semantic-ui-react';
 
 const heroku = "https://team-cheese-backend.herokuapp.com/volunteers";
-const local = "http://localhost:3000/volunteers";
+// const local = "http://localhost:3000/volunteers";
 
 class Volunteer extends React.Component {
 

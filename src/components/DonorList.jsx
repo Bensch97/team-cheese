@@ -2,7 +2,7 @@ import React from 'react';
 import { Item } from 'semantic-ui-react';
 
 const heroku = "https://team-cheese-backend.herokuapp.com/all";
-const local = "http://localhost:3000/all";
+// const local = "http://localhost:3000/all";
 
 class Donors extends React.Component {
     render() {

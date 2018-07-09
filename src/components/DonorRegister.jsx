@@ -1,34 +1,11 @@
 import React from 'react';
-import { Button, Form, Checkbox } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const heroku = "https://team-cheese-backend.herokuapp.com/adddonor";
-const local = "http://localhost:3000/adddonor";
-
-class Example extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            startDate: moment()
-        };
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(date) {
-        this.setState({
-            startDate: date
-        });
-    }
-
-    render() {
-        return <DatePicker
-            selected={this.state.startDate}
-            onChange={this.handleChange}
-        />;
-    }
-}
+// const local = "http://localhost:3000/adddonor";
 
 class DonationRegister extends React.Component {
 
