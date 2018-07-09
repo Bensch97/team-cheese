@@ -30,29 +30,34 @@ class VolunteerRegister extends Component {
     }
 
     handleChecked = (day, e) => {
+        // console.log(this.state.days)
+        // console.log(day,e.target.checked )
         let dayChecked = this.state.days;
         dayChecked[day] = e.target.checked;
         this.setState({
             days: dayChecked
         })
-        console.log(this.state)
+        // console.log(this.state)
         console.log(this.state.days)
     }
 
     handleSubmit = () => {
-        fetch(local, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            mode: "cors",
-            body: JSON.stringify({
-                volunteer_name: this.state.volunteer_name,
-                phone: this.state.phone,
-                email: this.state.email,
-                days: this.state.days,
-            }),
-        })
+        fetch(local,
+                {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                mode: "cors",
+                body: JSON.stringify({
+                    volunteer_name: this.state.volunteer_name,
+                    phone: this.state.phone,
+                    email: this.state.email,
+                    days: this.state.days,
+                }),
+            }
+        )
+            .then(response => response.json())
             .then(data => {
                 console.log(data)
             })
@@ -78,13 +83,13 @@ class VolunteerRegister extends Component {
                         </Form.Field>
                         <Form.Field>
                             <h3>Days of availability: </h3>
-                            <label onChange={(e) => this.handleChecked("Sunday", e)}><Checkbox label="Sunday" /></label>
-                            <label onChange={(e) => this.handleChecked("Monday", e)}><Checkbox label="Monday" /> </label>
-                            <label onChange={(e) => this.handleChecked("Tuesday", e)}><Checkbox label="Tuesday" /></label>
-                            <label onChange={(e) => this.handleChecked("Wednesday", e)}><Checkbox label="Wednesday" /></label>
-                            <label onChange={(e) => this.handleChecked("Thursday", e)}><Checkbox label="Thusday" /></label>
-                            <label onChange={(e) => this.handleChecked("Friday", e)}><Checkbox label="Friday" /></label>
-                            <label onChange={(e) => this.handleChecked("Saturday", e)}><Checkbox label="Saturday" /></label>
+                            <label onChange={(e) => this.handleChecked("Sunday", e)}><input type="checkbox" label="Sunday" />Sunday</label>
+                            <label onChange={(e) => this.handleChecked("Monday", e)}><input type="checkbox" label="Monday" />Monday</label>
+                            <label onChange={(e) => this.handleChecked("Tuesday", e)}><input type="checkbox" label="Tuesday" />Tuesday</label>
+                            <label onChange={(e) => this.handleChecked("Wednesday", e)}><input type="checkbox" label="Wednesday" />Wednesday</label>
+                            <label onChange={(e) => this.handleChecked("Thursday", e)}><input type="checkbox" label="Thusday" />Thursday</label>
+                            <label onChange={(e) => this.handleChecked("Friday", e)}><input type="checkbox" label="Friday" />Friday</label>
+                            <label onChange={(e) => this.handleChecked("Saturday", e)}><input type="checkbox" label="Saturday" />Saturday</label>
                         </Form.Field>
                         <Button type='submit'>Submit</Button>
                     </Form>

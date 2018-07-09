@@ -70,6 +70,7 @@ class DonationRegister extends React.Component {
         this.setState({
             days: dayChecked
         })
+        console.log(this.state.days);
     }
 
     handleSubmit = () => {
@@ -125,16 +126,16 @@ class DonationRegister extends React.Component {
                                 <label>Pickup Time</label>
                                 <input placeholder='Time' onChange={this.handleChange("time")} />
                             </Form.Field>
-                            
+
                             <Form.Field>
                                 <h3>Weekly availability: </h3>
-                                <label onChange={(e) => this.handleChecked("Sunday", e)}><Checkbox label="Sunday" /></label>
-                                <label onChange={(e) => this.handleChecked("Monday", e)}><Checkbox label="Monday" /> </label>
-                                <label onChange={(e) => this.handleChecked("Tuesday", e)}><Checkbox label="Tuesday" /></label>
-                                <label onChange={(e) => this.handleChecked("Wednesday", e)}><Checkbox label="Wednesday" /></label>
-                                <label onChange={(e) => this.handleChecked("Thursday", e)}><Checkbox label="Thusday" /></label>
-                                <label onChange={(e) => this.handleChecked("Friday", e)}><Checkbox label="Friday" /></label>
-                                <label onChange={(e) => this.handleChecked("Saturday", e)}><Checkbox label="Saturday" /></label>
+                                <label onChange={(e) => this.handleChecked("Sunday", e)}><input type="checkbox" label="Sunday" />Sunday</label>
+                                <label onChange={(e) => this.handleChecked("Monday", e)}><input type="checkbox" label="Monday" />Monday</label>
+                                <label onChange={(e) => this.handleChecked("Tuesday", e)}><input type="checkbox" label="Tuesday" />Tuesday</label>
+                                <label onChange={(e) => this.handleChecked("Wednesday", e)}><input type="checkbox" label="Wednesday" />Wednesday</label>
+                                <label onChange={(e) => this.handleChecked("Thursday", e)}><input type="checkbox" label="Thusday" />Thursday</label>
+                                <label onChange={(e) => this.handleChecked("Friday", e)}><input type="checkbox" label="Friday" />Friday</label>
+                                <label onChange={(e) => this.handleChecked("Saturday", e)}><input type="checkbox" label="Saturday" />Saturday</label>
                             </Form.Field>
 
                             <Button type='submit'>Submit</Button>
