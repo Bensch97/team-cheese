@@ -35,11 +35,7 @@ class DonationItem extends React.Component {
                     <ul>
                         <li>Contact: {this.props.manager}</li>
                         <li>Phone: {this.props.phone}</li>
-                        <li>Email: {this.props.email} </li>
-                        <li>Pickup Day: </li>
-                        <li>Pickup Time: </li>
-                        <li>Items recieving:</li>
-                        <li>Pickup Size: </li>
+                        <li>Pickup Day: {this.props.day}</li>
                     </ul>
                 </Grid.Column>
                 <Grid.Column width={3}>
@@ -63,8 +59,9 @@ class ListItems extends React.Component {
                             name={this.props.name}
                             workers={item[1]}
                             phone={this.props.phone}
-                            email={this.props.emails}
+                            email={this.props.email}
                             manager={this.props.manager}
+                            day={item[0]}
                         />
                     }
                 }
@@ -94,6 +91,8 @@ class Home extends Component {
                     data,
                     listItems
                 })
+                console.log(this.state.data)
+
             })
     }
 
