@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Grid, Image, List } from 'semantic-ui-react';
 
-const heroku = "https://team-cheese-backend.herokuapp.com/home";
-// const local = "http://localhost:3000/home";
+
+// const heroku = "https://team-cheese-backend.herokuapp.com/home";
+const local = "http://localhost:3000/home";
 
 class VolunteerListItem extends React.Component {
 
@@ -23,18 +24,7 @@ class VolunteerListItem extends React.Component {
 
 class DonationItem extends React.Component {
 
-    state = {
-        workers: []
-    }
-
-    componentDidMount = () => {
-        this.setState({
-            workers: this.props.workers
-        })
-    }
-
     render() {
-        console.log("1", typeof this.state.workers)
         return (
             <Grid>
                 <Grid.Column width={4}>
@@ -43,7 +33,10 @@ class DonationItem extends React.Component {
                 <Grid.Column width={9}>
                     <h3>Details</h3>
                     <ul>
-                        <li>Pickup Days: {this.props.pickupDays}</li>
+                        <li>Contact: {this.props.manager}</li>
+                        <li>Phone: {this.props.phone}</li>
+                        <li>Email: {this.props.email} </li>
+                        <li>Pickup Day: </li>
                         <li>Pickup Time: </li>
                         <li>Items recieving:</li>
                         <li>Pickup Size: </li>
@@ -51,41 +44,74 @@ class DonationItem extends React.Component {
                 </Grid.Column>
                 <Grid.Column width={3}>
                     <h4>Who's available?</h4>
-                    {this.state.workers.map((name,i) => <VolunteerListItem key={i} name={name} />)}
+                    {this.props.workers.map((name, i) => <VolunteerListItem key={i} name={name} />)}
                 </Grid.Column>
             </Grid>
         )
     }
 }
 
+class ListItems extends React.Component {
+
+    render() {
+        return (
+            <div>
+                {Object.entries(this.props.listItem).map((item, i) => {
+                    if (item[1].length || this.props.pickupDays.includes(item[0])){
+                        return <DonationItem
+                            key={i}
+                            name={this.props.name}
+                            workers={item[1]}
+                            phone={this.props.phone}
+                            email={this.props.emails}
+                            manager={this.props.manager}
+                        />
+                    }
+                }
+                )}
+            </div>
+        )
+    }
+}
+
+
 class Home extends Component {
 
     state = {
-        data: []
+        data: [],
+        listItems: []
     }
 
     componentDidMount = () => {
-        fetch(heroku)
+        fetch(local)
             .then(response => response.json())
             .then(data => {
-                this.setState({ data })
-                // console.log(this.state.data)
+                let listItems = []
+                for (let i in data) {
+                    listItems.push(data[i].days_with_workers)
+                }
+                this.setState({
+                    data,
+                    listItems
+                })
             })
     }
 
     render() {
         return (
             <div className="ui container">
-                <div className="fullpage">
+                <div className="ItemFullpage">
                     <h1>Homepage</h1>
                     <p>These are your upcoming pickups!</p>
-                    {this.state.data.map(data => <DonationItem key={data.id}
-                        name={data.name}
-                        phone={data.phone}
-                        email={data.email}
-                        pickupDays={data.days_available}
-                        workers={data.available_workers}
-                    />)}
+                    {this.state.data.map((data, i) =>
+                        <ListItems
+                            key={data.id}
+                            name={data.name}
+                            phone={data.phone}
+                            email={data.email}
+                            manager={data.manager}
+                            pickupDays={data.pickupDays}
+                            listItem={this.state.listItems[i]} />)}
                 </div>
             </div>
         )
@@ -93,3 +119,4 @@ class Home extends Component {
 }
 
 export default withRouter(Home);
+
