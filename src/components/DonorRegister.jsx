@@ -95,14 +95,6 @@ class DonationRegister extends React.Component {
                                 <label>Manager</label>
                                 <input placeholder='Manager' onChange={this.handleChange("manager")} />
                             </Form.Field>
-                            <Form.Field>
-                                <label>Pickup Date</label>
-                                <DatePicker selected={this.state.date} onChange={this.handleDate} />
-                            </Form.Field>
-                            <Form.Field>
-                                <label>Pickup Time</label>
-                                <input placeholder='Time' onChange={this.handleChange("time")} />
-                            </Form.Field>
 
                             <Form.Field>
                                 <h3>Weekly availability: </h3>

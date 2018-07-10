@@ -6,7 +6,6 @@ import Home from './Home';
 import DonorList from './DonorList';
 import VolunteerRegister from './VolunteerRegister';
 import DonorRegister from './DonorRegister';
-import Calendar from './Calendar';
 
 class Navigation extends Component {
 
@@ -20,7 +19,6 @@ class Navigation extends Component {
                     <Menu.Item as='a' href="/navigation/volunteerregister"><Icon name='plus' />Add Volunteer</Menu.Item>
                     <Menu.Item as='a' href="/navigation/donorlist"><Icon name='caret square down outline' />Donor List</Menu.Item>
                     <Menu.Item as='a' href="/navigation/donorregister"><Icon name='plus' />Add Donor</Menu.Item>
-                    <Menu.Item as='a' href="/navigation/calendar"><Icon name='calendar alternate outline' />Calendar</Menu.Item>
                 </Sidebar>
 
                 <Sidebar.Pusher>
@@ -29,7 +27,6 @@ class Navigation extends Component {
                             <Route exact path='/navigation/home' render={() => <Home />} />
                             <Route path='/navigation/volunteers' render={() => <VolunteerPage />} />
                             <Route path='/navigation/volunteerregister' render={() => <VolunteerRegister />} />
-                            <Route path='/navigation/calendar' render={() => <Calendar />} />
                             <Route path='/navigation/donorregister' render={() => <DonorRegister />} />
                             <Route path='/navigation/donorlist' render={() => <DonorList />} />
                         </Switch>
