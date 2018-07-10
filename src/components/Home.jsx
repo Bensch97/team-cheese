@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { Grid, Image, List } from 'semantic-ui-react';
 
 
-// const heroku = "https://team-cheese-backend.herokuapp.com/home";
-const local = "http://localhost:3000/home";
+const heroku = "https://team-cheese-backend.herokuapp.com/home";
+// const local = "http://localhost:3000/home";
 
 class VolunteerListItem extends React.Component {
 
@@ -83,7 +83,7 @@ class Home extends Component {
     }
 
     componentDidMount = () => {
-        fetch(local)
+        fetch(heroku)
             .then(response => response.json())
             .then(data => {
                 let listItems = []

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 
-// const heroku = "https://team-cheese-backend.herokuapp.com/addvolunteer";
-const local = "http://localhost:3000/addvolunteer";
+const heroku = "https://team-cheese-backend.herokuapp.com/addvolunteer";
+// const local = "http://localhost:3000/addvolunteer";
 
 class VolunteerRegister extends Component {
 
@@ -39,7 +39,7 @@ class VolunteerRegister extends Component {
     }
 
     handleSubmit = () => {
-        fetch(local, {
+        fetch(heroku, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

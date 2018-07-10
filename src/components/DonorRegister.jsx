@@ -4,8 +4,8 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
-// const heroku = "https://team-cheese-backend.herokuapp.com/adddonor";
-const local = "http://localhost:3000/adddonor";
+const heroku = "https://team-cheese-backend.herokuapp.com/adddonor";
+// const local = "http://localhost:3000/adddonor";
 
 class DonationRegister extends React.Component {
 
@@ -50,7 +50,7 @@ class DonationRegister extends React.Component {
     }
 
     handleSubmit = () => {
-        fetch(local, {
+        fetch(heroku, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
