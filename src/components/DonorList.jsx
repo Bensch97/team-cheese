@@ -12,14 +12,12 @@ class Donors extends React.Component {
                     <Item>
                         <Item.Content>
                             <Item.Header as='a'>{this.props.name}</Item.Header>
-                            <Item.Meta>{this.props.phone}
+                            <Item.Meta>Phone: {this.props.phone}
                                 <br />
-                                {this.props.address}</Item.Meta>
+                                Address: {this.props.address}</Item.Meta>
                             <Item.Description>
                                 <ul>
-                                    <li>{this.props.manager}</li>
-                                    <li>{this.props.pickup_date}</li>
-                                    <li>{this.props.pickup_time}</li>
+                                    <li>Manager: {this.props.manager}</li>
                                 </ul>
                             </Item.Description>
                             <Item.Extra></Item.Extra>
@@ -48,6 +46,7 @@ class DonorList extends React.Component {
 
 
     render() {
+        console.log(this.state.data)
         return (
             <React.Fragment>
                 <div className="ui container">
@@ -59,7 +58,6 @@ class DonorList extends React.Component {
                             address={data.address}
                             phone={data.phone}
                             manager={data.manager}
-                            pickup_date={data.pickup_date}
                             pickup_time={data.pickup_time} />)}
                     </div>
                 </div>
