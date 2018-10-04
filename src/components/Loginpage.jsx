@@ -23,7 +23,7 @@ class Loginpage extends Component {
     }
 
     handleRegistration = () => {
-        fetch("https://kwitter-api.herokuapp.com/auth/register", {
+        fetch("https://team-cheese-backend.herokuapp.com/register", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ class Loginpage extends Component {
       }
     
       handleLogin = () => {
-        fetch("https://kwitter-api.herokuapp.com/auth/login",
+        fetch("https://team-cheese-backend.herokuapp.com/register",
           {
             method: 'POST',
             headers: {
@@ -55,9 +55,8 @@ class Loginpage extends Component {
           })
           .then(response => response.json())
           .then(data => {
-              console.log(data.token)
-            this.props.dispatch(login(data.token));
-            if (data.token) {
+              console.log(data[0])
+            if (data[0]) {
               this.setState({ loggedIn: true });
             } else {
               alert("Please register first.");
