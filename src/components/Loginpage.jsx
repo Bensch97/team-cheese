@@ -41,7 +41,7 @@ class Loginpage extends Component {
       }
     
       handleLogin = () => {
-        fetch("https://team-cheese-backend.herokuapp.com/register",
+        fetch("https://team-cheese-backend.herokuapp.com/login",
           {
             method: 'POST',
             headers: {
